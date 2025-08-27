@@ -1,0 +1,43 @@
+{% extends "core/base.html" %}
+{% block title %}Edit task{% endblock %}
+
+{% block content %}
+  <!-- Center the card on the page -->
+  <div class="min-h-[60vh] flex items-center justify-center">
+    <div class="max-w-lg w-full bg-white shadow rounded p-6">
+      <h1 class="text-xl font-semibold mb-4">Edit task</h1>
+
+      {% if error %}
+        <div class="mb-4 rounded border border-red-200 bg-red-50 text-red-700 px-4 py-2">
+          {{ error }}
+        </div>
+      {% endif %}
+
+      <form method="post" action="{% url 'tdlapp:edit_todo' todo.id %}" class="space-y-4">
+        {% csrf_token %}
+
+        <label class="block">
+          <span class="text-sm text-gray-700">Title</span>
+          <input
+            type="text"
+            name="title"
+            value="{{ todo.title }}"
+            required
+            autofocus
+            class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring"
+          />
+        </label>
+
+        <div class="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+          <button class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">
+            Save changes
+          </button>
+          <a href="{% url 'tdlapp:list_todos' %}"
+             class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-50">
+            Cancel
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
