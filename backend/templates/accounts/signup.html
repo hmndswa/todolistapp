@@ -10,21 +10,49 @@
       {% csrf_token %}
       {{ form.non_field_errors }}
 
-      <!-- Username -->
       <div>
         <label class="block text-sm text-gray-700">Username</label>
         {{ form.username.errors }}
         {{ form.username }}
       </div>
 
-      <!-- Password1 -->
+      <div>
+        <label class="block text-sm text-gray-700">Email</label>
+        {{ form.email.errors }}
+        {{ form.email }}
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-gray-700">First name</label>
+          {{ form.first_name.errors }}
+          {{ form.first_name }}
+        </div>
+        <div>
+          <label class="block text-sm text-gray-700">Last name</label>
+          {{ form.last_name.errors }}
+          {{ form.last_name }}
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-700">Date of birth</label>
+        {{ form.date_of_birth.errors }}
+        {{ form.date_of_birth }}
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-700">Phone number</label>
+        {{ form.phone_number.errors }}
+        {{ form.phone_number }}
+      </div>
+
       <div>
         <label class="block text-sm text-gray-700">Password</label>
         {{ form.password1.errors }}
         {{ form.password1 }}
       </div>
 
-      <!-- Password2 -->
       <div>
         <label class="block text-sm text-gray-700">Confirm password</label>
         {{ form.password2.errors }}
